@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://.import/KinematicBody2D.gd" type="Script" id=2]
+
+[node name="mundo" type="Node"]
+
+[node name="Jugador" type="KinematicBody2D" parent="."]
+position = Vector2( 239.385, 188.009 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Jugador"]
+position = Vector2( 268.179, 118.444 )
+texture = ExtResource( 1 )
