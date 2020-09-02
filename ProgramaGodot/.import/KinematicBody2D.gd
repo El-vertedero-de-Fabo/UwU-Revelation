@@ -1,22 +1,31 @@
 extends KinematicBody2D
 
+const salto = Vector2(0,-1)
+const velocidad = 200
+const frenar = 0;
+const salto_arriba=-550
+const gravedad = 20
 
 var movimiento = Vector2()
-const salto = Vector2(0,-1)
 
-func _physics_process(_delta):
-	movimiento.y +=10  #gravedad del objeto	
+func _physics_process(delta):  #Controles del personaje
+	movimiento.y += gravedad  #gravedad del objeto	
 	
 	if Input.is_action_pressed("ui_right"):
-		movimiento.x=100
+		movimiento.x=velocidad
+		$Sprite.flip_h= false
+		$Sprite.play("Run")
 	elif Input.is_action_pressed("ui_left"):
-		movimiento.x=-100
+		movimiento.x=-velocidad
+		$Sprite.flip_h= true  #Para invertir la imagen del sprinte
+		$Sprite.play("Run")
 	else:
-		movimiento.x = 0
+		movimiento.x = frenar
+		$Sprite.play("Idie")
 	if is_on_floor():
-		print("On floor.")
+		#print("On floor.")
 		if Input.is_action_just_pressed("ui_up"):
-			movimiento.y = -400
+			movimiento.y = salto_arriba
 	
 	move_and_slide(movimiento,salto)
 	pass

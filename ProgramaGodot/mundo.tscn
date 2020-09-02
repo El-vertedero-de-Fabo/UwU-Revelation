@@ -1,0 +1,90 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://.import/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Plataformas/Plataforma.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=3]
+[ext_resource path="res://Jungla.tres" type="TileSet" id=4]
+[ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/Jump0.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idie",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 9.04703, 12.7139 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.4361, 28.6325 )
+
+[node name="mundo" type="Node"]
+
+[node name="Jugador" type="KinematicBody2D" parent="."]
+position = Vector2( 34.2939, -9.78082 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Jugador"]
+position = Vector2( 294.348, 182.357 )
+scale = Vector2( 1.43541, 1.3008 )
+frames = SubResource( 4 )
+animation = "Idie"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
+position = Vector2( 295.055, 186.423 )
+scale = Vector2( 2, 3 )
+shape = SubResource( 3 )
+
+[node name="PlataformasJuego" type="Node" parent="."]
+
+[node name="Plataformas3" type="StaticBody2D" parent="PlataformasJuego"]
+visible = false
+position = Vector2( 555.088, 585.802 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="PlataformasJuego/Plataformas3"]
+modulate = Color( 0.639216, 0.156863, 0.156863, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasJuego/Plataformas3"]
+position = Vector2( -64.1447, -74.9802 )
+scale = Vector2( 7, 1.93 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 458755, 0, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 2, 0, 524291, 3, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 5, 0, 589827, 6, 0, 589828, 7, 0, 589829, 7, 0, 589830, 7, 0, 589831, 7, 0, 589832, 7, 0, 589833, 7, 0, 589834, 7, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 7, 0, 589840, 7, 0, 589841, 8, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
