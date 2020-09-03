@@ -22,7 +22,7 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "Jump",
 "speed": 5.0
@@ -30,36 +30,38 @@ animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Idie",
-"speed": 60.0
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 9.04703, 12.7139 )
+[sub_resource type="CapsuleShape2D" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.4361, 28.6325 )
 
 [node name="mundo" type="Node"]
 
 [node name="Jugador" type="KinematicBody2D" parent="."]
-position = Vector2( 34.2939, -9.78082 )
+position = Vector2( 31.0498, -171.004 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="Jugador"]
-position = Vector2( 294.348, 182.357 )
-scale = Vector2( 1.43541, 1.3008 )
+position = Vector2( 268.735, 207.97 )
+scale = Vector2( 0.634993, 0.500379 )
 frames = SubResource( 4 )
-animation = "Run"
-frame = 4
-playing = true
+animation = "Idie"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
-position = Vector2( 295.055, 186.423 )
-scale = Vector2( 2, 3 )
-shape = SubResource( 3 )
+position = Vector2( 268.774, 210 )
+scale = Vector2( 1, 0.7 )
+shape = SubResource( 5 )
 
 [node name="PlataformasJuego" type="Node" parent="."]
 
@@ -77,7 +79,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasJuego/Plataformas3"]
 position = Vector2( -64.1447, -74.9802 )
 scale = Vector2( 7, 1.93 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -86,7 +88,7 @@ __meta__ = {
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 458755, 0, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 2, 0, 524291, 3, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 5, 0, 589827, 6, 0, 589828, 7, 0, 589829, 7, 0, 589830, 7, 0, 589831, 7, 0, 589832, 7, 0, 589833, 7, 0, 589834, 7, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 7, 0, 589840, 7, 0, 589841, 8, 0 )
+tile_data = PoolIntArray( 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524291, 3, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 5, 0, 589827, 6, 0, 589828, 7, 0, 589829, 7, 0, 589830, 7, 0, 589831, 7, 0, 589832, 7, 0, 589833, 7, 0, 589834, 7, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 7, 0, 589840, 7, 0, 589841, 8, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
